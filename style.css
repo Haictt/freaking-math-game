@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+:root {
+    --state: paused;
+    --ani: bar 5s linear backwards;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: #fff;
+    width: 400px;
+    height: 500px;
+}
+
+.modal-bg {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.247);
+    width: 100%;
+    height: 100%;
+}
+
+.modal-failed {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    background: #3d3d3d;
+    color: #ffd154;
+    opacity: 0;
+    top: 150px;
+    left: 50px;
+    width: 300px;
+    height: 200px;
+    font-size: 40px;
+    animation: modal 1s linear forwards;
+}
+
+.button-rs {
+    border: 4px salmon solid;
+    background: #A2F8CD;
+    color: #000;
+    cursor: pointer;
+}
+
+.button-rs:hover {
+    background-color: #00ff00
+}
+
+@keyframes modal {
+    0% {
+        top: -200px;
+    }
+    100% {
+        top: 150px;
+        opacity: 1;
+    }
+}
+
+.math-display {
+    font-size: 40px;
+}
+
+.game {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 20px;
+    background: lightcoral;
+}
+
+.game::before {
+    content: '';
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    height: 100%;
+    right: 100%;
+    animation: var(--ani);
+    animation-play-state: var(--state);
+}
+
+@keyframes bar {
+    0% {
+        right: 100%;
+    }
+    100% {
+        right: 0%;
+    }
+}
+
+.button {
+    height: 100px;
+    display: flex;
+    font-size: 40px;
+    justify-content: space-between;
+}
+
+.button-true,
+.button-false {
+    border: 4px solid #000;
+    margin: 0 16px 0;
+    padding: 40px;
+    width: 160px;
+    cursor: pointer;
+    /* background: no-repeat center url("../../Javascript/hov_loading.jpg"); */
+}
+
+.button-true:hover,
+.button-false:hover {
+    background: #00ff00;
+}
